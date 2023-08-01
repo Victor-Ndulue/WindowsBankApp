@@ -52,6 +52,7 @@ namespace WindowsBankForm
         {
             SignUp form = new SignUp();
             form.Show();
+            this.Hide();
         }
     }
 }
