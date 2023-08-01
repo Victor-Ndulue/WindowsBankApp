@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
+using Repositories.Interfaces;
 
 namespace Repositories.Implementations
 {
-    public class UserRepository : GenericRepository<User>
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
         private readonly DataContext _context;
         private readonly DbSet<User> _users;    

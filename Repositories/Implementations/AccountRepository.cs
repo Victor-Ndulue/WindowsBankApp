@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
+using Repositories.Interfaces;
 
 namespace Repositories.Implementations
 {
-    public class AccountRepository : GenericRepository<Account>
+    public class AccountRepository : GenericRepository<Account>, IAccountRepository
     {
         private readonly DataContext _context;
         private readonly DbSet<Account> _accounts;
