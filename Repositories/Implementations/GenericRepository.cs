@@ -19,7 +19,7 @@ namespace Repositories.Implementations
             await _dbSet.AddAsync(entity);
         }
 
-        public void UpdateAsync (T entity)
+        public void Update(T entity)
         {
             _dbSet.Update(entity);
         }
