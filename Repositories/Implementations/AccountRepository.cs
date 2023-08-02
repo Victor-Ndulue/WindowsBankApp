@@ -29,14 +29,6 @@ namespace Repositories.Implementations
         {
             IEnumerable<Account> accounts = _accounts.AsEnumerable().Where(x=>x.UserId == userId);
             return accounts;
-        }
-
-        public string GenerateAccountNumber()
-        {
-            Random random = new Random();
-            var number = random.Next(0, 1000000000);
-            string AccountNumber = "5" + number.ToString();
-            return AccountNumber;
-        } 
+        }        
     }
 }

@@ -6,7 +6,8 @@ namespace Models
     {
         public string UserName { get; set; }
         public string EmailAddress { get; set; }
-        public string Password { get; set;}
+        public byte[] PasswordSalt { get; set;}
+        public byte[] PasswordHash { get; set;}
         public IEnumerable<Account> Accounts { get; set; }
     }
 }
