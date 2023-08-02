@@ -131,6 +131,7 @@
             LoginButton.TabIndex = 9;
             LoginButton.Text = "Login";
             LoginButton.UseVisualStyleBackColor = false;
+            LoginButton.Click += LoginButton_Click;
             // 
             // WindowsBankForm
             // 

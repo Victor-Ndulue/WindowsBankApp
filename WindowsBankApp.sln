@@ -12,10 +12,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{8346013F-3E6E-4B3F-849F-31AE7DD92077}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsBankForm", "WindowsBankForm\WindowsBankForm.csproj", "{60E95971-0814-4F39-8DBC-38C09ACD4EC8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6F05CE0E-EDB0-4A21-B77F-3679B8BAC678} = {6F05CE0E-EDB0-4A21-B77F-3679B8BAC678}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{5296DB2F-DC0E-4874-B49B-D01AFAA6E3A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{5296DB2F-DC0E-4874-B49B-D01AFAA6E3A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{6F05CE0E-EDB0-4A21-B77F-3679B8BAC678}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{6F05CE0E-EDB0-4A21-B77F-3679B8BAC678}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

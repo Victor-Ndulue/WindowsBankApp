@@ -19,18 +19,23 @@ namespace Services.Implementations
             string userName = Utility.RemoveDigitFromStart(username);
             if (Utility.IsEmailValid(email))
             {
-                var saltAndHash = Utility.GenerateHash(password);
-                var user = new User
+                var User = _unitOfWork.userRepository.GetUserAsync(email);
+                if (User != null)
                 {
-                    UserName = userName,
-                    EmailAddress = email,
-                    PasswordHash = saltAndHash[0],
-                    PasswordSalt = saltAndHash[1]
-                };
-                await _unitOfWork.userRepository.CreateAsync(user);
-                await _unitOfWork.SaveAsync();
-                _unitOfWork.Dispose();
-                return $"Account successfuly created for {user.UserName}";
+                    var saltAndHash = Utility.GenerateHash(password);
+                    var user = new User
+                    {
+                        UserName = userName,
+                        EmailAddress = email,
+                        PasswordHash = saltAndHash[0],
+                        PasswordSalt = saltAndHash[1]
+                    };
+                    await _unitOfWork.userRepository.CreateAsync(user);
+                    await _unitOfWork.SaveAsync();
+                    _unitOfWork.Dispose();
+                    return $"Account successfuly created for {user.UserName}";
+                }
+                else { return "Account already existing"; }
             } else { return "Mail passed not valid. Account creation unsuccessful."; }
         }
         public async Task<bool> LoginAsync(string email, string password)
@@ -55,12 +60,12 @@ namespace Services.Implementations
                 byte[] passwordHash;
                 byte[] passwordSalt;
                 userName = Utility.RemoveDigitFromStart(username);
-                if (userName.IsNullOrEmpty()) return "empty or invalid unername";
+                if (userName==null) return "empty or invalid unername";
                 user.UserName = userName;
                 bool checkMail = Utility.IsEmailValid(email);
                 if (!checkMail) return "mail invalid";
                 user.EmailAddress = email;
-                if (password.IsNullOrEmpty()) return "Password field cannot be empty";
+                if (password == null) return "Password field cannot be empty";
                 var hashAndSalt = Utility.GenerateHash(password);
                 passwordHash = hashAndSalt[0];
                 passwordSalt = hashAndSalt[1];

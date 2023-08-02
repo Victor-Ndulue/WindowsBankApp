@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Abp" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.Security" Version="7.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Repositories\Repositories.csproj" />
     <ProjectReference Include="..\Utilities\Utilities.csproj" />
   </ItemGroup>

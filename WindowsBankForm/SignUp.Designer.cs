@@ -31,9 +31,9 @@
             UsernameLabel = new Label();
             PasswordLabel = new Label();
             EmailLabel = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            passwordField = new TextBox();
+            emailAddressfield = new TextBox();
+            usernamefield = new TextBox();
             SignUpButton = new Button();
             HeaderText = new Label();
             SuspendLayout();
@@ -68,26 +68,28 @@
             EmailLabel.TabIndex = 2;
             EmailLabel.Text = "Enter your Email Address";
             // 
-            // textBox1
+            // passwordField
             // 
-            textBox1.Location = new Point(603, 320);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(218, 23);
-            textBox1.TabIndex = 3;
+            passwordField.Location = new Point(603, 320);
+            passwordField.Name = "passwordField";
+            passwordField.Size = new Size(218, 23);
+            passwordField.TabIndex = 3;
             // 
-            // textBox2
+            // emailAddressfield
             // 
-            textBox2.Location = new Point(296, 234);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(299, 23);
-            textBox2.TabIndex = 4;
+            emailAddressfield.Location = new Point(296, 234);
+            emailAddressfield.Name = "emailAddressfield";
+            emailAddressfield.Size = new Size(299, 23);
+            emailAddressfield.TabIndex = 4;
             // 
-            // textBox3
+            // usernamefield
             // 
-            textBox3.Location = new Point(42, 153);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(242, 23);
-            textBox3.TabIndex = 5;
+            usernamefield.Font = new Font("Cascadia Code Light", 8.25F, FontStyle.Italic, GraphicsUnit.Point);
+            usernamefield.Location = new Point(42, 153);
+            usernamefield.Name = "usernamefield";
+            usernamefield.Size = new Size(242, 20);
+            usernamefield.TabIndex = 5;
+            usernamefield.TextChanged += textBox3_TextChanged;
             // 
             // SignUpButton
             // 
@@ -99,6 +101,7 @@
             SignUpButton.TabIndex = 6;
             SignUpButton.Text = "SignUp";
             SignUpButton.UseVisualStyleBackColor = false;
+            SignUpButton.Click += SignUpButton_Click;
             // 
             // HeaderText
             // 
@@ -121,9 +124,9 @@
             ClientSize = new Size(844, 512);
             Controls.Add(HeaderText);
             Controls.Add(SignUpButton);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(usernamefield);
+            Controls.Add(emailAddressfield);
+            Controls.Add(passwordField);
             Controls.Add(EmailLabel);
             Controls.Add(PasswordLabel);
             Controls.Add(UsernameLabel);
@@ -139,9 +142,9 @@
         private Label UsernameLabel;
         private Label PasswordLabel;
         private Label EmailLabel;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox passwordField;
+        private TextBox emailAddressfield;
+        private TextBox usernamefield;
         private Button SignUpButton;
         private Label HeaderText;
     }

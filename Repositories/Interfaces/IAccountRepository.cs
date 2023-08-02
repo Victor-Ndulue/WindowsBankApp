@@ -2,7 +2,7 @@
 
 namespace Repositories.Interfaces
 {
-    public interface IAccountRepository
+    public interface IAccountRepository: IGenericRepository<Account>
     {
         IQueryable<Account> GetAllAccounts();
         IEnumerable<Account> GetAccountsByUserId(byte userId);

@@ -14,10 +14,9 @@ namespace Repositories.Implementations
             _transactions = _context.Transactions;
         }
 
-        public IEnumerable<Transaction> GetTransactionsByDate(DateOnly date)
+        public IEnumerable<Transaction> GetTransactionsByDate(DateTime date)
         {
-            DateTime dateTime = date.ToDateTime(TimeOnly.MinValue);
-            IEnumerable<Transaction> transactions = _transactions.Where(x => x.TransactionDate == dateTime).AsEnumerable();
+            IEnumerable<Transaction> transactions = _transactions.Where(x => x.TransactionDate == date).AsEnumerable();
             return transactions;
         }
 

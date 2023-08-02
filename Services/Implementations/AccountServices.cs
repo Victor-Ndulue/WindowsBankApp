@@ -1,28 +1,29 @@
 ﻿using Models;
-using Repositories.UnitOfWork.Implementation;
+using Repositories.UnitOfWork.Interface;
+using Services.Interfaces;
 using Utilities;
 
 namespace Services.Implementations
 {
-    internal sealed class AccountServices
+    internal sealed class AccountServices:IAccountServices
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AccountServices(UnitOfWork unitOfWork)
+        public AccountServices(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<string> CreateAccount(string firstName, string lastName, byte phoneNumber,AccountType accountType ,decimal initialDeposit, string emailAddress) 
+        public async Task<string> CreateAccount(string firstName, string lastName, byte phoneNumber,AccountType accountType ,double initialDeposit, string emailAddress) 
         {
             User user = await _unitOfWork.userRepository.GetUserAsync(emailAddress);
             firstName = Utility.RemoveDigitFromStart(firstName);
             firstName = Utility.FirstCharacterToUpper(firstName);
-            if (firstName.IsNullOrEmpty()) { return "invalid naming format"; }
+            if (firstName==null) { return "invalid naming format"; }
             lastName = Utility.RemoveDigitFromStart(lastName);
             lastName = Utility.FirstCharacterToUpper(lastName);
             string accountNumber = Utility.GenerateAccountNumber();
-            if (lastName.IsNullOrEmpty()) { return "invalid naming format"; }
+            if (lastName==null) { return "invalid naming format"; }
             if (initialDeposit>=0)
             {
                 Account account = new Account

@@ -2,13 +2,14 @@
 
 namespace Models
 {
-    public class Transaction
+    public class Transaction:BaseEntity
     {
         public DateTime TransactionDate { get; set; } 
         public TransactionType TransactionType { get; set; }
-        public string TransactionTypeDescription { set { TransactionType.ToString(); } }
+        public double leftBalance { get; set; }  
+        public string TransactionTypeDescription { get; set; }
         [ForeignKey(nameof(Account))]
-        public int AccountId { get; set; }
+        public byte AccountId { get; set; }
         public Account Account { get; set; }
     }
 }

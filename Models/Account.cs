@@ -7,7 +7,7 @@ namespace Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public byte PhoneNumber { get; set; }
-        public decimal AccountBalance;
+        public double AccountBalance { get; set; }
         public string AccountNumber { get; set; }
         public AccountType AccountType { get; set; }
         [ForeignKey(nameof(User))]

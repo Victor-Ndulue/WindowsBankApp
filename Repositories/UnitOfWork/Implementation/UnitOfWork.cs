@@ -1,9 +1,10 @@
 ﻿using Repositories.Implementations;
 using Repositories.Interfaces;
+using Repositories.UnitOfWork.Interface;
 
 namespace Repositories.UnitOfWork.Implementation
 {
-    public class UnitOfWork
+    public class UnitOfWork:IUnitOfWork
     {
         private readonly DataContext _context;
         private IUserRepository _userRepository;

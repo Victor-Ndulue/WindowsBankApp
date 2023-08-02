@@ -1,11 +1,14 @@
+using Services.UnitOfWork.Interfaces;
 using System.Windows.Forms;
 
 namespace WindowsBankForm
 {
     public partial class WindowsBankForm : Form
     {
-        public WindowsBankForm()
+        private readonly IServiceUnitOfWork _serviceUnitOfWork;
+        public WindowsBankForm(IServiceUnitOfWork serviceUnitOfWork)
         {
+            _serviceUnitOfWork = serviceUnitOfWork;
             InitializeComponent();
         }
 
@@ -53,6 +56,11 @@ namespace WindowsBankForm
             SignUp form = new SignUp();
             form.Show();
             this.Hide();
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
